@@ -1,0 +1,67 @@
+html(lang="es")
+    head 
+        title= 'ESPG Mailer - Programas aperturados'
+        include ../partials/libraries.pug
+        link(rel="stylesheet", href="/css/tables.css")
+    body
+        include ../partials/nav.pug
+
+        .container-fluid 
+            table#programasAP.table.table-striped.align-middle
+                thead 
+                    tr
+                        th(scope="col").align-middle.text-secondary 
+                            label(for="#buscador") Buscador  
+                        th(colspan="2")
+                            input#buscador(type="text" place).form-control                        
+                        th(colspan="2").align-middle
+                            .btn-group(role="group").w-100
+                                button#buscador-btn.btn.btn-secondary(title="Buscar")
+                                    i.fa-solid.fa-magnifying-glass
+                                button.btn.btn-outline-secondary(title="Registrar" type="button", data-bs-toggle="modal", data-bs-target="#form-registro")
+                                    i.fa-solid.fa-circle-plus
+                    
+                    tr.table-dark
+                        th(colspan="5") Programas Aperturados
+
+                    tr.bg-success-subtle
+                        th(colspan="5")
+                            .d-flex.gap-2
+                                .form-floating.w-50
+                                    select#filterAdmision(name="idSeccion").form-select
+                                        option Todos
+                                    label(for="filterAdmision").text-dark Proceso de admision
+                                
+                                .form-floating.w-50
+                                    select#filterTipo(name="idSeccion").form-select
+                                        option Todos
+                                        option Maestría
+                                        option Doctorado
+                                    label(for="filterPrograma").text-dark Tipo de programa
+
+                    tr.table-secondary
+                        th(scope="col") Tipo
+                        th(scope="col") Nombre
+                        th(scope="col") Secciones
+                        th(scope="col") Admisión
+                        th(scope="col") 
+                            i.fa-solid.fa-gears
+                
+                tbody 
+
+            div#form-registro.modal.fade(tabindex="-1")
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h5.modal-title Registrar nuevo programa aperturado
+                            button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+                        .modal-body 
+                            include ../partials/form.programas.pug
+
+                        .modal-footer
+                            button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                            button#btn-registro(type="button").btn.btn-primary Registrar 
+
+    script(src="../js/programas.js") 
+    script(src="../js/programas.panel.js") 

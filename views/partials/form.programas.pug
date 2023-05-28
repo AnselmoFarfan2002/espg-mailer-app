@@ -1,0 +1,35 @@
+.form-floating.mb-3
+    select#select-programa.form-select
+    
+    label.form-label(for="select-programa") Seleccione un programa
+
+.form-floating.mb-3 
+    select#select-admision.form-select
+    
+    label.form-label(for="select-admision") Seleccione un proceso de admision
+
+#accordion-secciones.accordion
+    .accordion-item
+        .accordion-header
+            button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#seccion-a" aria-expanded="true" aria-controls="collapseOne") Sección A
+            
+        #seccion-a.accordion-collapse.collapse.show
+            .accordion-collapse.collapse.show.p-3.pb-1
+                input(type="hidden" value="A" name="nombre")
+
+                .form-floating.mb-3
+                    input#input-seccion-correo.form-control(type="email" placeholder="espg-11@unjbg.edu.pe" name="correo" pattern="/^\\w+-\\d+\.espg@unjbg.edu.pe$/gi")
+                    label.form-label(for="input-seccion-correo") Correo electrónico institucional
+
+                .form-floating.mb-3
+                    input#input-seccion-contrasenia.form-control(type="text" placeholder="espg-11@unjbg.edu.pe" name="contrasenia" pattern="/^\\w+$/gi")
+                    label.form-label(for="input-seccion-correo") Contrasenia
+
+                .form-floating.mb-3
+                    input#input-seccion-aula.form-control(type="text" placeholder="Enlace o número" name="aula" pattern="/^(?!\\s).*$/gi")
+                    label.form-label(for="input-seccion-correo") Aula
+    
+    .btn-group(role="group").w-100 
+        button.add.rounded-0.btn.btn-light.text-secondary Nueva sección
+        button.remove.rounded-0.btn.btn-light.text-secondary Eliminar sección
+        

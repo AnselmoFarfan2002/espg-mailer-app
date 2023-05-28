@@ -1,0 +1,15 @@
+.mb-3 
+    h4 Matricular estudiantes
+
+.form-floating.mb-3
+    textarea(name="codigos", cols="16", rows="10" style="height: 275px" required).form-control#textarea-codigos
+    label.form-label(for="textarea-codigos") Códigos de estudiante (c/u con salto de línea)
+    #alert-matricula.form-text.text-danger.d-none
+        span.fw-semibold Observación. 
+        span Códigos no encontrados.
+    .form-text 
+        span.fw-semibold Nota. 
+        span Los códigos deben ser separados mediante saltos de línea.
+    .form-text 
+        span.fw-semibold Sugerencia. 
+        span Copie y pegue los códigos del acta del sysa.

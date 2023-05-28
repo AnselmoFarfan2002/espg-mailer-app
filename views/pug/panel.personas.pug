@@ -1,0 +1,18 @@
+html(lang="es")
+    head 
+        title= 'ESPG Mailer - Gestionar correos'
+        include ../partials/libraries.pug
+        link(rel="stylesheet", href="/css/tables.css")
+        link(rel="stylesheet", href="/css/correos.css")
+    body
+        include ../partials/nav.pug
+
+        .container.my-4
+            h3.text-secondary Registrar persona
+
+            .form-text.text-danger.fw-bold.mb-1.d-none Ha ocurrido un error con los registros, verifica la sintaxis, y si todo está bien es probable que hayan repetidos
+            textarea#idDataRaw(name="estudiantes", cols="30", rows="15" placeholder="Por ejemplo: \ncodigo    nombre  correo1\ncodigo    nombre  correo1\ncodigo    nombre  correo1\ncodigo    nombre  correo1\ncodigo    nombre  correo1\n").form-control.mb-3
+            .form-text.mb-3 Separa los datos por tabs, los registros por saltos de línea. Suele ser más fácil copiar y pegar de un excel.
+
+            button(onclick="registrarPersonas()").btn.btn-primary Registrar
+    script(src="../js/personas.js")

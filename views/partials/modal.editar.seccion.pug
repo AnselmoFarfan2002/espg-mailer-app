@@ -1,0 +1,29 @@
+button#triggerEditarSeccion(data-bs-toggle="modal" data-bs-target="#form-editar").d-none Editar
+
+div#form-editar.modal.fade(tabindex="-1")
+    .modal-dialog
+        form(action="" method="POST").modal-content
+            .modal-header
+                h5.modal-title Editando sección
+                button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+            .modal-body 
+                .form-floating 
+                    input.nombre#esNombre(type="text" name="nombre" readonly required).form-control.mb-3
+                    label(for="esnombre") Sección
+                
+                .form-floating 
+                    input.correo#esCorreo(type="email" name="correo" required).form-control.mb-3
+                    label(for="esCorreo") Correo
+
+                .form-floating 
+                    input.contrasenia#esContrasenia(type="text" name="contrasenia" required).form-control.mb-3
+                    label(for="esContrasenia") Contraseña
+
+                .form-floating 
+                    input.aula#esAula(type="text" name="aula" required).form-control
+                    label(for="esAula") Aula
+
+            .modal-footer
+                button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                button#btn-registro(type="submit").btn.btn-primary Guardar cambios 

@@ -1,0 +1,70 @@
+html(lang="es")
+    head 
+        title= 'ESPG Mailer - Cursos aperturados'
+        include ../partials/libraries.pug
+        link(rel="stylesheet", href="/css/cursos.css")
+        link(rel="stylesheet", href="/css/tables.css")
+        link(rel="stylesheet", href="/css/docente.css")
+    body
+        include ../partials/nav.pug
+
+        .container-fluid 
+            .mb-3.mt-3
+                #idCurso.d-none #{id}
+                #idSeccion.d-none #{ids}
+                .h5 #{programa} (#{admision})
+                .h6 #{curso} (Sección #{seccion})
+                .h6.fw-normal #{semestre} semestre
+
+            hr.mb-0
+
+            table#matriculados.table.table-striped.align-middle
+                thead 
+                    tr
+                        th(scope="col").align-middle.text-secondary 
+                            label(for="#buscador") Buscador  
+                        th(colspan="3")
+                            input#buscador(type="text" place).form-control                        
+                        th.align-middle
+                            .btn-group(role="group").w-100
+                                button#buscador-btn.btn.btn-secondary(title="Buscar")
+                                    i.fa-solid.fa-magnifying-glass
+                                button.btn.btn-outline-secondary(title="Añadir varios" type="button", data-bs-toggle="modal", data-bs-target="#matricularVarios")
+                                    i.fa-solid.fa-person
+                                    i.fa-solid.fa-person-circle-plus
+                    
+                    tr.table-dark
+                        th#nombreCurso(colspan="5") 
+                            span Cantidad de matriculados en curso: 
+                            span#cantidadMTR
+
+                    tr.table-secondary
+                        th(scope="col") ID
+                        th(scope="col") Docente
+                        th(scope="col") Fecha inicio
+                        th(scope="col") Fecha fin
+                        th(scope="col").text-center
+                            i.fa-solid.fa-gears
+                
+                tbody 
+
+            div#matricularVarios.modal.fade(tabindex="-1")
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h5.modal-title Matricular personas várias por código 
+                            button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+                        .modal-body 
+                            include ../partials/form.matriculados.varios.pug
+
+                        .modal-footer
+                            button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                            button#btn-matricular.btn.btn-primary(type="button") Matricular
+
+            include ../partials/modal.editar.seccion.pug
+            include ../partials/modal.editar.cronograma.pug
+            include ../partials/modal.editar.docente.pug
+
+        script(src="/js/docente.js")
+        script(src="/js/matriculados.panel.js")        

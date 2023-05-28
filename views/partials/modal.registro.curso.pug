@@ -1,0 +1,51 @@
+button#triggerRegistroCurso(data-bs-toggle="modal" data-bs-target="#form-editar").d-none Editar
+
+div#form-registro.modal.fade(tabindex="-1")
+    .modal-dialog.modal-dialog-scrollable
+        .modal-content
+            .modal-header
+                h5.modal-title Registrar nuevo curso 
+                button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+            .modal-body 
+                .form-floating 
+                    select#select-programa(name="idPrograma").form-select.mb-3
+                    label(for="programa") Seleccione un programa
+                    
+
+                .form-floating 
+                    select#select-seccion(name="idSeccion").form-select.mb-3
+                    label(for="seccion") Secciones válidas
+
+                .form-floating 
+                    select#select-semestre(name="idSeccion").form-select.mb-3
+                    label(for="seccion") Semestre
+
+                .form-floating 
+                    select#select-curso(name="idCurso").form-select.mb-3
+                    label(for="curso") Seleccione un curso
+
+                hr
+                .px-3
+                    select#select-docente(name="idDocente" disabled).form-select.mb-3
+                        option(value="0") Seleccione un docente
+
+                    .input-group.mb-3
+                        input#nombreDocente.form-control(type="text" placeholder="Nombre del docente")
+                        button#findDocenteTrigger.btn.btn-secondary(type='button')
+                            i.fa-solid.fa-magnifying-glass
+                        
+                    
+                    #optDocentes
+                    #msgBusquedaDocente.form-text Realice una búsqueda
+                hr
+
+                .input-group
+                    span.input-group-text Desde:
+                    input#input-inicio-curso(name="inicio" placeholder="yyyy-mm-dd").form-control
+                    span.input-group-text Hasta:
+                    input#input-fin-curso(name="fin" placeholder="yyyy-mm-dd").form-control
+
+            .modal-footer
+                button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                button#btn-registro(type="button").btn.btn-primary Registrar 

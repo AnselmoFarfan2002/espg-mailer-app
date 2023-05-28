@@ -1,0 +1,23 @@
+button#triggerEditarCronograma(data-bs-toggle="modal" data-bs-target="#form-editar-cronograma").d-none Editar
+
+div#form-editar-cronograma.modal.fade(tabindex="-1")
+    .modal-dialog
+        form(action="" method="POST").modal-content
+            .modal-header
+                h5.modal-title Editando cronograma
+                button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+            .modal-body 
+                .form-floating 
+                    input.inicio#ecInicio(type="date" name="inicio" inputmode="numeric" placeholder="dd/mm/yyyy" required).form-control.mb-3
+                    label(for="ecInicio") Fecha inicio
+                
+                .form-floating 
+                    input.fin#ecFin(type="date" name="fin" placeholder="mes/día/año" required).form-control.mb-3
+                    label(for="ecFin") Fecha de finalización
+                .form-text 
+                    span.fw-semibold Formato. 
+                    span mes (mm)/día (dd)/año (yyyy)
+            .modal-footer
+                button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                button#btn-registro(type="submit").btn.btn-primary Guardar cambios 

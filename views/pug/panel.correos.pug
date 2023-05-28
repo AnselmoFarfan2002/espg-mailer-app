@@ -1,0 +1,103 @@
+html(lang="es")
+    head 
+        title= 'ESPG Mailer - Gestionar correos'
+        include ../partials/libraries.pug
+        link(rel="stylesheet", href="/css/tables.css")
+        link(rel="stylesheet", href="/css/correos.css")
+    body
+        include ../partials/nav.pug
+
+        button.btn.btn-danger.fixed-button 
+            i.fa-solid.fa-paper-plane
+
+        .container-fluid 
+            table#cursosAP.table.align-middle.table-mailer.table-bordered
+                thead(style="border: 0px")
+                    tr(style="border: 0px")
+                        th(scope="col" style="border: 0px").align-middle.text-secondary 
+                            label(for="#buscador") Buscador  
+                        th(colspan="7" style="border: 0px")
+                            input#buscador(type="text" place).form-control                        
+                        th(colspan="1" style="border: 0px").align-middle
+                            .btn-group(role="group").w-100
+                                button#buscador-btn.btn.btn-secondary(title="Buscar")
+                                    i.fa-solid.fa-magnifying-glass
+                    
+                    tr.table-dark
+                        th(colspan="9") Esta semana (<span id ="fechas"></span>)
+
+                    //- tr.bg-success-subtle
+                    //-     th(colspan="8")
+                    //-         .d-flex.gap-2
+                    //-             .form-floating.w-50
+                    //-                 select#filterAdmision(name="idSeccion").form-select
+                    //-                     option Todos
+                    //-                 label(for="filterAdmision").text-dark Proceso de admision
+                                
+                    //-             .form-floating.w-50
+                    //-                 select#filterTipo(name="idSeccion").form-select
+                    //-                     option Todos
+                    //-                     option Maestría
+                    //-                     option Doctorado
+                    //-                 label(for="filterPrograma").text-dark Tipo de programa
+
+                    tr.table-secondary
+                        th(scope="col") Admisión
+                        th(scope="col") Programa
+                        th(scope="col") Docente
+                        th(scope="col") Curso
+                        th(scope="col") Inicio
+                        th(scope="col") Fin
+                        th(scope="col") Tipo
+                        th(scope="col") Aula
+                        th(scope="col") 
+                            i.fa-solid.fa-gears
+                
+                tbody
+
+            div#template-Inicio.modal.fade(tabindex="-1")
+                .modal-dialog.modal-fullscreen
+                    .modal-content
+                        .modal-header
+                            h5.modal-title Comunicado (inicio) – clases de 
+                                programa
+                            button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+                        .modal-body
+                            include ../partials/templates/inicioClases.pug
+
+                        .modal-footer
+                            button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                            button#btn-registro(type="button").btn.btn-primary Aceptar 
+
+            div#template-Continua.modal.fade(tabindex="-1")
+                .modal-dialog.modal-fullscreen
+                    .modal-content
+                        .modal-header
+                            h5.modal-title Comunicado (continua) – clases de 
+                                programa
+                            button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+                        .modal-body
+                            include ../partials/templates/continua.pug
+
+                        .modal-footer
+                            button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                            button#btn-registro(type="button").btn.btn-primary Aceptar 
+            
+            div#template-No.modal.fade(tabindex="-1")
+                .modal-dialog.modal-fullscreen
+                    .modal-content
+                        .modal-header
+                            h5.modal-title Comunicado (no hay clases) – clases de 
+                                programa
+                            button(type="button", data-bs-dismiss="modal", aria-label="Close").btn-close
+
+                        .modal-body
+                            include ../partials/templates/noClases.pug
+
+                        .modal-footer
+                            button#btn-cancelar(type="button", data-bs-dismiss="modal").btn.btn-secondary Cancelar 
+                            button#btn-registro(type="button").btn.btn-primary Aceptar 
+
+    script(src="../js/correos.panel.js")

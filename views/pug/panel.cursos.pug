@@ -1,0 +1,48 @@
+html(lang="es")
+    head 
+        title= 'ESPG Mailer - Cursos aperturados'
+        include ../partials/libraries.pug
+        link(rel="stylesheet", href="/css/cursos.css")
+        link(rel="stylesheet", href="/css/tables.css")
+        link(rel="stylesheet", href="/css/docente.css")
+    body
+        include ../partials/nav.pug
+
+        .container-fluid 
+            table#cursosAP.table.table-striped.align-middle
+                thead 
+                    tr
+                        th(scope="col").align-middle.text-secondary 
+                            label(for="#buscador") Buscador  
+                        th(colspan="5")
+                            input#buscador(type="text" place).form-control                        
+                        th(colspan="2").align-middle
+                            .btn-group(role="group").w-100
+                                button#buscador-btn.btn.btn-secondary(title="Buscar")
+                                    i.fa-solid.fa-magnifying-glass
+                                button.btn.btn-outline-secondary(title="Registrar" type="button", data-bs-toggle="modal", data-bs-target="#form-registro")
+                                    i.fa-solid.fa-circle-plus
+                    
+                    tr.table-dark
+                        th#idPrograma #{id}
+                        th#admisionPrograma #{admision}
+                        th(colspan="6")
+                            #nombreLargoPrograma #{pref + ' en ' + nombre}
+                            #nombrePrograma.d-none #{nombre}
+                    
+                    tr.table-secondary
+                        th(scope="col") ID
+                        th(scope="col") Sección
+                        th(scope="col") Aula
+                        th(scope="col" colspan="2") Correo
+                        th(scope="col" colspan="2") Contraseña
+                        th(scope="col").text-center
+                            i.fa-solid.fa-gears
+                
+                tbody 
+            
+            include ../partials/modal.registro.curso.pug
+            include ../partials/modal.editar.seccion.pug
+
+        script(src="/js/cursos.panel.js")
+        script(src="/js/docente.js")

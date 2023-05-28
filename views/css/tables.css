@@ -1,0 +1,15 @@
+tbody tr:hover{
+    background-color: rgba(248, 248, 152, 0.992);
+}
+
+.tbody:hover{
+    background-color: rgba(248, 248, 152, 0.992);
+}
+
+.table-mailer tbody, .table-mailer .table-secondary{
+    font-size: small;
+}
+
+tbody .dropdown-item{
+    cursor: pointer !important;
+}

@@ -1,0 +1,23 @@
+.fixed-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    /* Agrega otros estilos según tus necesidades */
+  }
+  
+  .fixed-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    /* Otros estilos adicionales */
+  }
+  
+.destinatarios:hover, .modal-header:hover, .contenidoCorreo:hover{
+  cursor: pointer;
+  background-color: azure;
+}
