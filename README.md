@@ -18,3 +18,9 @@ Configuraciones: (.env)
 Corrida rápida (solo windows):
 - Ejecutar primero el fichero 'dependencies.bat' (**instala dependencias**)
 - Ejecutar fichero 'MailerApp.bat' (**inicia la aplicación**, no cerrar la shell que se abra)
+
+Tecnologías usadas:
+- JavaScript
+- NodeJS
+- Pug
+- Bootstrap
