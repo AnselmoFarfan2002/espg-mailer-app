@@ -1,5 +1,4 @@
 @echo off
 cd %~dp0
-start /WAIT "" "http://localhost/gui/programas"
-npm i
+start "" "http://localhost/gui/programas"
 npm run go
